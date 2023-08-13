@@ -1,15 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Posts</title>
-</head>
-<body>
-    {% for post in posts %}
-        <h2>{{post.title}}</h2>
-        <h4>{{post.text}}</h4>
-        <h3>Author: {{post.author}}</h3>
-    {% endfor %}
-</body>
-</html>
+{% extends '_base.html' %}
+
+
+{% block page_title %}Posts{% endblock page_title %}
+
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-9">
+                {% for post in posts %}
+                    <div class="card shadow-sm my-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ post.title }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted small py-2">By: {{ post.author }}</h6>
+                            <p class="card-text py-3">
+                                {{ post.text }}
+                            </p>
+                            <div class="btn btn-sm btn-success">Read More</div>
+                        </div>
+                    </div> 
+                {% endfor %}
+            </div>
+            <div class="col-3">
+                <div class="card my-4">
+                    <h5 class="card-header">About</h5>
+                    <div class="card-body">
+                        <p class="card-text">We love python and django. So we created a blog site to share our
+                            thoughts</p>
+                        <a href="#"
+                        class="btn btn-sm btn-danger">
+                            More...
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
