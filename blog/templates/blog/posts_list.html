@@ -12,11 +12,13 @@
                     <div class="card shadow-sm my-3">
                         <div class="card-body">
                             <h5 class="card-title">{{ post.title }}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted small py-2">created at: {{ post.datetime_modified }}</h6>
+                            <h6 class="card-subtitle mb-2 text-muted small py-2">Edited at: {{ post.datetime_modified }}</h6>
                             <p class="card-text py-3">
                                 {{ post.text }}
                             </p>
                             <a href={% url 'post_detail' post.id %} class="btn btn-sm btn-success"> Read More</a>
+                            <a href={% url 'post_update' post.id %} class="btn btn-sm btn-primary"> Edit</a>
+                            <a href={% url 'post_delete' post.id %} class="btn btn-sm btn-danger"> Delete</a>
                         </div>
                     </div> 
                 {% endfor %}

@@ -6,3 +6,8 @@ class NewPostForm(ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'text', 'author', 'status']
+
+class UpdatePostForm(ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'text', 'status']
